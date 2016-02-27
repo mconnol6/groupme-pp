@@ -22,9 +22,9 @@ class ChatsController < ApplicationController
 
   def all_messages
     if session[:msglog]
-      session[:msglog] << {:username => session[:username], :msg => params[:msg]}
+      session[:msglog] << {:username => params[:username], :msg => params[:msg]}
     else
-      session[:msglog] = [{:username => session[:username], :msg => params[:msg]}]
+      session[:msglog] = [{:username => params[:username], :msg => params[:msg]}]
     end
     render :text => "fuck"
   end
