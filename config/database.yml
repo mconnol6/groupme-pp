@@ -16,7 +16,6 @@ development:
   username: postgres
   password: test
   database: groupmepp
-  host: ec2-54-83-3-38.compute-1.amazonaws.com
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -29,5 +28,5 @@ production:
   <<: *default
   host: ec2-54-83-3-38.compute-1.amazonaws.com
   username: zoqohdtxkklxoe
-  password: <%= ENV['DB-PASS'] %>
+  password: <%= ENV['DB_PASS'] %>
   database: d2p0vcuqtnqvdn
