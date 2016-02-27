@@ -2,7 +2,7 @@ class ChatsController < ApplicationController
   def new_message
     @message = Message.new()
     @message.username = session[:username]
-    @message.username = params[:message]
+    @message.message = params[:message]
     @message.save()
     # Check if the message is private
     if recipient = params[:message].match(/@(.+) (.+)/)
