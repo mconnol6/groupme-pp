@@ -21,7 +21,7 @@ class ChatsController < ApplicationController
   end
 
   def room
-    #redirect_to login_new_path unless session[:username]
+    redirect_to login_new_path unless session[:username]
   end
 
   def all_messages
