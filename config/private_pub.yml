@@ -1,0 +1,10 @@
+development:
+  server: "https://funfaye.herokuapp.com/faye"
+  secret_token: "herpderp"
+test:
+  server: "https://funfaye.herokuapp.com/faye"
+  secret_token: "herpderp"
+production:
+  server: "https://funfaye.herokuapp.com/faye"
+  secret_token: "herpderp"
+  signature_expiration: 3600 # one hour
