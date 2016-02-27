@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create', :as => :login_create
   post '/new_message' => 'chats#new_message', :as => :new_message
 
+  resources :messages
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

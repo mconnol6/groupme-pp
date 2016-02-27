@@ -1,5 +1,9 @@
 class ChatsController < ApplicationController
   def new_message
+    @message = Message.new()
+    @message.username = session[:username]
+    @message.username = params[:message]
+    @message.save()
     # Check if the message is private
     if recipient = params[:message].match(/@(.+) (.+)/)
       # It is private, send it to the recipient's private channel
@@ -21,15 +25,10 @@ class ChatsController < ApplicationController
   end
 
   def all_messages
-    if session[:msglog]
-      session[:msglog] << {:username => params[:username], :msg => params[:msg]}
-    else
-      session[:msglog] = [{:username => params[:username], :msg => params[:msg]}]
-    end
     render :text => "fuck"
   end
 
   def get_all_messages
-    render :text => ActiveSupport::JSON.encode(session[:msglog])
+    render :text => Message.all.to_json
   end
 end
