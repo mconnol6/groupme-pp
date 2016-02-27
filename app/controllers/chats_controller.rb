@@ -19,4 +19,17 @@ class ChatsController < ApplicationController
   def room
     redirect_to login_new_path unless session[:username]
   end
+
+  def all_messages
+    if session[:msglog]
+      session[:msglog] << {:username => session[:username], :msg => params[:msg]}
+    else
+      session[:msglog] = [{:username => session[:username], :msg => params[:msg]}]
+    end
+    render :text => "fuck"
+  end
+
+  def get_all_messages
+    render :text => ActiveSupport::JSON.encode(session[:msglog])
+  end
 end

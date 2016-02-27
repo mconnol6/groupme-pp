@@ -6,7 +6,19 @@
     var client = new Faye.Client('http://localhost:9292/faye');
 
     PrivatePub.subscribe("/messages/public", function(data) {
-      $('<p></p>').html(data.username + ": " + data.msg).appendTo('#chat_room')
+      $('<p></p>').html(data.username + ": " + data.msg).appendTo('#chat_room');
+      $.ajax({
+        type: "POST",
+        url: "<%= all_messages_path %>",
+        data: data,
+        success: function (html) {
+          console.log("successful request");
+        },
+        error: function (jqXHR, exception) {
+          console.log("status: " + jqXHR.status);
+          console.log("exception: " + exception);
+        }
+      });
     });
 
 			PrivatePub.subscribe("/messages/private/<%= session[:username] %>", function(data) {

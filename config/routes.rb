@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get '/chatroom' => 'chats#room', :as => :chat
+  post '/all_messages' => 'chats#all_messages', :as => :all_messages
+  get '/get_all_messages' => 'chats#get_all_messages', :as => :get_all_messages
   get '/login' => 'sessions#new', :as => :login_new
   post '/login' => 'sessions#create', :as => :login_create
   post '/new_message' => 'chats#new_message', :as => :new_message

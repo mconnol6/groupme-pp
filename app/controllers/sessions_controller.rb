@@ -6,4 +6,5 @@ class SessionsController < ApplicationController
     session[:username] = params[:username]
     render :text => "Welcome #{session[:username]}!"
   end
+
 end
