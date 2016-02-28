@@ -1,0 +1,8 @@
+<%= form_tag("/public_channel") do %>
+	<%= submit_tag("Public channel") %>
+<% end %>
+
+<%= form_tag ("/set_channel") do %>
+	<%= text_field_tag :title %>
+	<%= submit_tag("Enter channel") %>
+<% end %>

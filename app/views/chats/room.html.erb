@@ -1,11 +1,12 @@
-<%= subscribe_to "/messages/public" %>
 <%= subscribe_to "/messages/private/#{session[:username]}" %>
+<%= subscribe_to "/messages/#{session[:channel]}" %>
+
 <script>
   $(function() {
     // Create a new client to connect to Faye
     var client = new Faye.Client('http://localhost:9292/faye');
 
-    PrivatePub.subscribe("/messages/public", function(data) {
+	PrivatePub.subscribe("/messages/<%= session[:channel]%>", function(data) {
       $('<p></p>').html(data.username + ": " + data.msg).appendTo('#chat_room');
       $.ajax({
         type: "POST",
@@ -27,8 +28,11 @@
   });
 </script>
 
+<%=link_to "Choose channel", choose_channel_path %>
+
 <div class="chat_container">
   <div id="chat_room">
+	<p> Chat room: <%= session[:channel] %>
     <p class="alert"> Welcome to the chat room <%= session[:username] %>! </p>
   </div>
 
