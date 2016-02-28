@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   get '/choose_channel' => 'chats#choose_channel', :as => :choose_channel
   post '/public_channel' => 'chats#public_channel', :as => :public_channel
   post '/set_channel' => 'chats#set_channel', :as => :set_channel
+  get '/channels/get_messages/:channel_name' => 'channels#get_messages_for_channel', :as => :get_messages_for_channel
 
   root 'chats#choose_channel'
 
   resources :messages
-  resources :channels
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
