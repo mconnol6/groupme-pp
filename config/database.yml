@@ -11,10 +11,9 @@ default: &default
 
 development:
   <<: *default
-  database: dd4m7ftf7s7v5l
-  host: ec2-54-83-3-38.compute-1.amazonaws.com
-  username: eyntpzrrrgujxo
-  password: kBfGc3teSBU08B1gORTfikaqv1
+  database: groupmepp
+  username: postgres
+  password: test
   encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
@@ -28,5 +27,5 @@ production:
   <<: *default
   database: dd4m7ftf7s7v5l
   host: ec2-54-83-3-38.compute-1.amazonaws.com
-  username: eyntpzrrrgujxo
+  username: ilfbwlstvoaapj
   password: <%= ENV['DB_PASS'] %>
